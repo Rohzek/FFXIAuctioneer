@@ -8,13 +8,14 @@ namespace Auctioneer.Database
      * I went with something that seems to give a similar
      * number to items added buy the game.
      * 
-     * See TimeObject.cs to see how it works.
+     * See Util/TimeObject.cs to see how it works.
      */
     public class AuctionItem
     {
+        public string Table { get; } = "auction_house";
         public uint Id { get; set; }
         public ushort ItemID { get; set; }
-        public bool Stack { get; set; }
+        public int Stack { get; set; }
         public uint Seller { get; set; }
         public string SellerName { get; set; }
         public uint Date { get; set; }
@@ -26,7 +27,7 @@ namespace Auctioneer.Database
         public AuctionItem()
         {
             ItemID = 0;
-            Stack = false;
+            Stack = 0;
             Seller = 0;
             SellerName = "AuctionMoogle";
             Date = TimeObject.Convert();

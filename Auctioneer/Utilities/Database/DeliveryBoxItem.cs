@@ -2,31 +2,32 @@
 {
     public class DeliveryBoxItem
     {
+        public string Table { get; } = "delivery_box";
         public uint CharID { get; set; }
         public string CharName { get; set; }
-        public bool Box { get; set; }
+        public int Box { get; set; }
         public ushort Slot { get; set; }
         public ushort ItemID { get; set; }
         public ushort ItemSubID { get; set; }
         public uint Quantity { get; set; }
         public uint SenderID { get; set; }
         public string Sender { get; set; }
-        public bool Recieved { get; set; }
-        public bool Sent { get; set; }
+        public int Recieved { get; set; }
+        public int Sent { get; set; }
 
         public DeliveryBoxItem()
         {
             CharID = 0;
             CharName = "";
-            Box = true;
+            Box = 1;
             Slot = 0;
             ItemID = 65535; // Gil
             ItemSubID = 656; // ? Is Gil
             Quantity = 0;
             SenderID = 0;
             Sender = "AuctionMoogle";
-            Recieved = false;
-            Sent = false;
+            Recieved = 0;
+            Sent = 0;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Timers;
 using System.Threading.Tasks;
 using Auctioneer.Util;
+using Auctioneer.Database;
 
 namespace Auctioneer
 {
@@ -30,7 +31,8 @@ namespace Auctioneer
         {
             timer = new Timer();
             timer.Elapsed += new ElapsedEventHandler(OnTimerEvent);
-            timer.Interval = Settings.GetRunSettings().RunInterval * 1000; // Interval is in miliseconds
+            // Interval is in miliseconds, but we asked for seconds in settings.json
+            timer.Interval = Settings.GetRunSettings().RunInterval * 1000;
             timer.Enabled = true;
         }
 
@@ -39,7 +41,13 @@ namespace Auctioneer
          */
         public static void OnTimerEvent(object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Sending money.");
+            DatabaseConnection conn = new DatabaseConnection();
+            conn.Connect();
+            var item = new DeliveryBoxItem();
+            item.CharID = 21828;
+            item.Quantity = 200;
+            conn.Payment(item);
         }
     }
 }

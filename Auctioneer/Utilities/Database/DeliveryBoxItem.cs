@@ -29,5 +29,10 @@
             Recieved = 0;
             Sent = 0;
         }
+
+        override public string ToString()
+        {
+            return $"{CharID}, {CharName}, {Box}, {Slot}, {ItemID}, {ItemSubID}, {Quantity}, {SenderID}, {Sender}, {Recieved}, {Sent}";
+        }
     }
 }

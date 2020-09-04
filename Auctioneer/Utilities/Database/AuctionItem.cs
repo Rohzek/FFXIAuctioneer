@@ -35,5 +35,10 @@ namespace Auctioneer.Database
             Sale = 0;
             SaleDate = TimeObject.Convert();
         }
+
+        override public string ToString()
+        {
+            return $"{Id}, {ItemID}, {Stack}, {Seller}, {SellerName}, {Date}, {Price}, {BuyerName}, {Sale}, {SaleDate}";
+        }
     }
 }

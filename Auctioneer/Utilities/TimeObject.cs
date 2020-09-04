@@ -10,7 +10,9 @@ namespace Auctioneer.Util
 
         public static uint Convert()
         {
-            return checked((uint)Math.Round((DateTime.Now - Epoch).TotalSeconds));
+            var output = checked((uint)Math.Round((DateTime.Now - Epoch).TotalSeconds));
+            //Console.WriteLine($"Should be setting date as: {output}");
+            return output;
         }
 
         public static uint Convert(DateTime date)
